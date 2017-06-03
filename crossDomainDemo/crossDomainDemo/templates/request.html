@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>request</title>
+</head>
+<body>
+    <button>发送跨域请求</button>
+    <label>源ghost页面请求地址（空页面）：<input type="text" id="start" style="width: 300px;" ></label>
+    <label>目标请求地址：<input type="text" id="end" style="width: 300px;" value="http://localhost:8081/get"></label>
+    <div style="overflow: hidden;margin: 5px;"><label for="">结果：<textarea name="" id="result" cols="30" rows="10"></textarea></label></div>
+    <script src="/static/js/util.js"></script>
+    <script>
+        (function(){
+            var getCORData = function(url,ghostUrl,callback){
+                var iframe = document.createElement("iframe");
+                    iframe.style.display = "none";
+                    iframe.src = url;
+                    var body = document.body,
+                        state = 0 ;
+                                    
+                    iframe.onload = function(){
+                        if(state == 1){
+                            callback(iframe.contentWindow.name);
+                            body.removeChild(iframe);//移除iframe，清理出内存
+                        }
+                        //这里是第一次跨域请求结束后，将src指定为ghost页面，这是因为name值只对位于同一域中的页面是可见的
+                        else if(state == 0){
+                            iframe.src = ghostUrl;//这里可以替换为自己的代理空页面
+                            
+                            state = 1;
+                        }              
+                    };
+                    body.appendChild(iframe); 
+            };
+            window.onload = function(){
+                $$("#start").value = window.location.protocol + "//" + window.location.host + "/ghost";
+                $$("button").onclick=function(){
+                    
+                    getCORData($$("#end").value,$$("#start").value ,function(data){
+                        var outcome = JSON.parse(data);//这里接收传过了json格式的string
+                        $$("#result").innerHTML = outcome.result;   
+                    });
+                    
+
+                };
+            };
+        }());
+    </script>
+</body>
+</html>
