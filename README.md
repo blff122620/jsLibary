@@ -6,6 +6,11 @@
 
 > [引用地址2：大白话讲解Promise（一）](http://www.cnblogs.com/lvdabao/p/es6-promise-1.html)
 
-2. 跨域访问的实现（window.name iframe实现）
+2. Django做服务端，JavaScript跨域访问的实现（window.name iframe实现）源文件见crossDomainDemo
 
+> 原理如下：window.name 传输技术，原本是 Thomas Frank 用于解决 cookie 的一些劣势（每个域名 4 x 20 Kb 的限制、数据只能是字符串、设置和获取 cookie 语法的复杂等等）而发明的（详细见原文：《Session variables without cookies》），后来 Kris Zyp 在此方法的基础上强化了 window.name 传输 ，并引入到了 Dojo （dojox.io.windowName），用来解决跨域数据传输问题。
+首先，我们要知道关于window.name的这样一个特性：name 值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。换句话说，name属性不会因为页面的url变化而变化，这就给跨域提供了机会。
+我们可以在源页面中利用iframe标签嵌套要请求的目标页面，在目标页面设置window.name属性，即把要请求的信息赋给window.name。但是问题来了，两个页面处于不同域，源页面并不能获得目标页面的name值，因为name值只对位于同一域中的页面是可见的。此时，我们需要将iframe导航回与源页面处于同一域中air.html页面（即一个空页面，在这里充当一个中转的角色），上面说了这时候的name值依旧保持不变，那么我们就可以获取到它了。
+
+> 分别启动 crossDomainDemo 和 crossDomainDemoAnother ,然后如下图访问 crossDomainDemo的/index
 ![屏幕截图](https://github.com/blff122620/jsLibary/blob/master/crossDomainDemo/screenshot.png?raw=true)
