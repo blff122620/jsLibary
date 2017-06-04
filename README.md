@@ -14,3 +14,7 @@
 
 > 分别启动 crossDomainDemo 和 crossDomainDemoAnother ,然后如下图访问 crossDomainDemo的/index
 ![屏幕截图](https://github.com/blff122620/jsLibary/blob/master/crossDomainDemo/screenshot.png?raw=true)
+
+3. 破解前端面试（80% 应聘者不及格系列）：从闭包 说起 /static/js/closure.js
+
+> [从闭包 说起](https://zhuanlan.zhihu.com/p/25855075)
