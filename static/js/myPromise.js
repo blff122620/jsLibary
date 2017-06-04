@@ -83,4 +83,5 @@
         return new MyPromise(function(resolve, reject) { resolve(data) });
     }).then(function(data) { console.log("resolve3:" + data) });
 
+
 }());
