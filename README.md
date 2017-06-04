@@ -17,4 +17,4 @@
 
 3. 破解前端面试（80% 应聘者不及格系列）：从闭包 说起 /static/js/closure.js
 
-> [从闭包 说起](https://zhuanlan.zhihu.com/p/25855075)
+> [引用地址:从闭包说起](https://zhuanlan.zhihu.com/p/25855075)
