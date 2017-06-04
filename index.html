@@ -55,6 +55,25 @@
             }
         });
         console.log(paramObj);
+
+        let newParamObj = search.slice(1).split("&").map(item=>{
+            let temp = decodeURIComponent(item).split("=");
+            let key = temp[0];
+            let value = temp[1] || true;
+            return {key,value};
+        }).reduce((prev,now)=>{
+            const {key,value} = now;
+            if(typeof prev[key] == "undefined"){
+                prev[key] = value;
+            }
+            else{
+                prev[key] = Array.isArray(prev[key])? prev[key] : [prev[key]];
+                prev[key].push(value);
+            }
+            return prev;
+        },{});
+
+        console.log(newParamObj);
     })();
     </script>
 </body>
