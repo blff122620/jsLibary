@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/css/global.css">
+    <style>
+    .content {
+        /*height: 1500px;*/
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .content>img {
+        border-radius: 5px;
+        display: inline-block;
+        margin: 200px 0 0 200px;
+        
+        width: 235px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="content bg1" id="js-imgdiv">
+        <img src="./static/img/lazyDefault.jpg" data-url="./static/img/1.jpg" alt="" >
+        <img src="./static/img/lazyDefault.jpg" data-url="./static/img/2.jpg" alt="" >
+        <img src="./static/img/lazyDefault.jpg" data-url="./static/img/3.jpg" alt="" >
+        <img src="./static/img/lazyDefault.jpg" data-url="./static/img/4.jpg" alt="" >
+        <img src="./static/img/lazyDefault.jpg" data-url="./static/img/5.jpg" alt="" >
+        <img src="./static/img/lazyDefault.jpg" data-url="./static/img/6.jpg" alt="" >
+    </div>
+
+    <script type="text/javascript" src="./static/js/util.js"></script>
+    <script type="text/javascript" src="./static/js/lazyLoad.js"></script>
+    <script>
+    (function() {
+        window.onload=function(){
+
+            var pics = $$("#js-imgdiv>img");
+            setPicSrc(pics);
+            window.onscroll = function(){
+                setPicSrc(pics);
+            };
+            function setPicSrc(pics){
+                pics.forEach(function(item){
+                    if(inViewPort(item)){
+                        setTimeout(function(){
+                            item.src = item.dataset.url;
+                        },200);//模拟一下网速慢秒
+                        
+                    };   
+                });
+                
+                
+            }
+
+        };
+    }());
+    </script>
+</body>
+
+</html>
