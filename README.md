@@ -23,7 +23,7 @@
 
 > [下载地址](https://github.com/blff122620/jsLibary/blob/master/static/js/progress.js)
 
-> [可以去我的找个网站看效果，顶部的进度条就是用的这个](http://www.bx1987.com/edu)
+> [可以去我的这个网站看效果，顶部的进度条就是用的这个](http://www.bx1987.com/edu)
 
 > 使用方法如下
 
