@@ -18,3 +18,25 @@
 3. 破解前端面试（80% 应聘者不及格系列）：从闭包 说起 /static/js/closure.js
 
 > [引用地址:从闭包说起](https://zhuanlan.zhihu.com/p/25855075)
+
+4. 增加自定义原生js进度条组件 jsLibary/static/js/
+
+> [下载地址](https://github.com/blff122620/jsLibary/blob/master/static/js/progress.js)
+
+> [可以去我的找个网站看效果，顶部的进度条就是用的这个](http://www.bx1987.com/edu)
+
+> 使用方法如下
+
+```html
+    <div class="top-progress" id="js-top-progress"></div> <!--结构只有一句话即可-->
+    <script src="./static/js/progress.js"></script>
+    <script type="text/javascript">
+    var p = myProgress.create(document.getElementById("#js-top-progress"), "#21a557", false); //第一个参数必须为原生dom对象
+    //第三个参数默认为true，表示进度条走完是否还显示
+    p.start(); //进度条开始走
+    
+    window.onload = function() {
+        p.over(); //页面加载完毕，调用，让进度条走完到100%
+    }
+    </script>
+```
