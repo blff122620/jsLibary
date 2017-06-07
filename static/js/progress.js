@@ -36,7 +36,7 @@ var myProgress = (function() {
                 if (!(typeof reservePro == "undefined" || reservePro)) {
                     context.progressEle.style.display = "none";
                 }
-            }, 0); //这里的目的是让进度条走到头再消失
+            }, 500); //这里的目的是让进度条走到头再消失
         };
     };
     
