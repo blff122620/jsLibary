@@ -39,7 +39,7 @@
     <div class="top-progress" id="js-top-progress"></div> <!--结构只有一句话即可-->
     <script src="./static/js/progress.js"></script>
     <script type="text/javascript">
-    var p = myProgress.create(document.getElementById("#js-top-progress"), "#21a557", false); //第一个参数必须为原生dom对象
+    var p = myProgress.create(document.querySelector("#js-top-progress"), "#21a557", false); //第一个参数必须为原生dom对象
     //第三个参数默认为true，表示进度条走完是否还显示
     p.start(); //进度条开始走
     
