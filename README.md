@@ -28,6 +28,14 @@
 > 使用方法如下
 
 ```html
+    <style>
+    .top-progress{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 2px;
+    }
+    </style>
     <div class="top-progress" id="js-top-progress"></div> <!--结构只有一句话即可-->
     <script src="./static/js/progress.js"></script>
     <script type="text/javascript">
