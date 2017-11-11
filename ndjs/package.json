@@ -1,0 +1,19 @@
+{
+  "name": "ndjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "cat": "^0.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script-name": "babel-node test_26.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
